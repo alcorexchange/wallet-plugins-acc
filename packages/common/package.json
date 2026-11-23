@@ -1,0 +1,26 @@
+{
+  "name": "@alcorexchange/acc-wallet-common",
+  "version": "0.1.0",
+  "description": "Shared parts of the Alcor Chain wallet plugins: account lookup by key, login text, errors",
+  "license": "BSD-3-Clause",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p .",
+    "prepublishOnly": "yarn build"
+  },
+  "peerDependencies": {
+    "@wharfkit/antelope": "^1.2.0",
+    "@wharfkit/session": "^1.6.0"
+  }
+}

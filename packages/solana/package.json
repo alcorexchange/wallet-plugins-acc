@@ -1,0 +1,43 @@
+{
+  "name": "@alcorexchange/wallet-plugin-solana",
+  "version": "0.1.0",
+  "description": "Sign Alcor Chain transactions with a Solana wallet (Phantom, Solflare, Backpack) in WharfKit Session Kit",
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "wharfkit",
+    "wallet-plugin",
+    "antelope",
+    "alcor",
+    "solana",
+    "phantom",
+    "wallet-standard"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p .",
+    "prepublishOnly": "yarn build"
+  },
+  "dependencies": {
+    "@alcorexchange/acc-wallet-common": "0.1.0",
+    "@noble/curves": "1.9.7",
+    "@solana/wallet-standard-features": "1.5.0",
+    "@wallet-standard/app": "1.1.1",
+    "@wallet-standard/base": "1.1.1",
+    "@wallet-standard/features": "1.1.1"
+  },
+  "peerDependencies": {
+    "@wharfkit/antelope": "^1.2.0",
+    "@wharfkit/session": "^1.6.0"
+  }
+}

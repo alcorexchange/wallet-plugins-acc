@@ -1,0 +1,40 @@
+{
+  "name": "@alcorexchange/wallet-plugin-evm",
+  "version": "0.1.0",
+  "description": "Sign Alcor Chain transactions with an Ethereum wallet (MetaMask, Rabby, Coinbase Wallet) in WharfKit Session Kit",
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "wharfkit",
+    "wallet-plugin",
+    "antelope",
+    "alcor",
+    "ethereum",
+    "metamask",
+    "eip-6963"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p .",
+    "prepublishOnly": "yarn build"
+  },
+  "dependencies": {
+    "@alcorexchange/acc-wallet-common": "0.1.0",
+    "@noble/curves": "1.9.7",
+    "@noble/hashes": "1.8.0"
+  },
+  "peerDependencies": {
+    "@wharfkit/antelope": "^1.2.0",
+    "@wharfkit/session": "^1.6.0"
+  }
+}

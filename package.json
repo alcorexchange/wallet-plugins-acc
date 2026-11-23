@@ -1,0 +1,27 @@
+{
+  "name": "wallet-plugins-acc",
+  "private": true,
+  "description": "WharfKit Session Kit wallet plugins for Alcor Chain: sign with an Ethereum or a Solana wallet",
+  "license": "BSD-3-Clause",
+  "type": "module",
+  "workspaces": [
+    "packages/common",
+    "packages/evm",
+    "packages/solana",
+    "example"
+  ],
+  "scripts": {
+    "build": "yarn workspace @alcorexchange/acc-wallet-common build && yarn workspace @alcorexchange/wallet-plugin-evm build && yarn workspace @alcorexchange/wallet-plugin-solana build",
+    "test": "yarn build && node --test 'tests/*.test.mjs'",
+    "example": "yarn build && yarn workspace example build"
+  },
+  "resolutions": {
+    "@wharfkit/antelope": "https://github.com/alcorexchange/wharfkit-antelope/releases/download/v1.2.0-alcor.1/wharfkit-antelope-1.2.0-alcor.1.tgz"
+  },
+  "devDependencies": {
+    "@noble/curves": "1.9.7",
+    "@noble/hashes": "1.8.0",
+    "@wharfkit/session": "1.6.1",
+    "typescript": "5.9.3"
+  }
+}
