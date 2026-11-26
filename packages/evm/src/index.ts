@@ -92,7 +92,7 @@ export class WalletPluginEvm extends AbstractWalletPlugin implements WalletPlugi
     }
     const publicKey = emPublicKey(signer)
 
-    const response = await loginWithKey(context, publicKey, this.options)
+    const response = await loginWithKey(context, publicKey, this.options, { wallet: wallet.name, address })
     const data: EvmSessionData = { publicKey: String(publicKey), address, walletName: wallet.name, rdns: wallet.rdns }
     this.data = { ...data }
     return response

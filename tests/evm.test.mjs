@@ -147,6 +147,10 @@ test('login: no account for the key points to account creation', async () => {
     assert.ok(error instanceof NoAccount)
     assert.equal(error.publicKey, pub)
     assert.equal(error.createAccountUrl, FAUCET)
+    assert.equal(typeof error.signer?.wallet, 'string')
+    assert.ok(error.message.includes(error.signer.address), 'names the address that signed')
+    assert.ok(error.message.includes(error.signer.wallet), 'names the wallet that answered')
+    assert.ok(error.message.includes('another wallet'), 'hints at another installed wallet')
     assert.ok(error.message.includes(FAUCET))
     return true
   })
