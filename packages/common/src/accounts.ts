@@ -9,7 +9,7 @@ import {
 } from '@wharfkit/session'
 
 import { chooseOne } from './choose.js'
-import { NoAccount, WrongAccount } from './errors.js'
+import { NoAccount, WrongAccount, type LoginSigner } from './errors.js'
 
 /** What a plugin may know about a chain beyond Session Kit's chain definition. */
 export interface ChainOptions {
@@ -87,18 +87,20 @@ export function preferActive(permissions: PermissionLevel[]): PermissionLevel[] 
 /**
  * The login answer for a key: the account the app asked for, if the key controls it;
  * otherwise the one account the key controls, or the one the person picks.
+ * `signer` (the wallet that signed the login text) goes into the "no account" error.
  */
 export async function loginWithKey(
   context: LoginContext,
   publicKey: PublicKey,
-  options: PluginOptions
+  options: PluginOptions,
+  signer?: LoginSigner
 ): Promise<WalletPluginLoginResponse> {
   if (!context.chain) throw new Error('Pick a chain before logging in')
   const chainId = String(context.chain.id)
   const extra = options.chains?.[chainId] ?? {}
 
   const permissions = await findPermissions(context.getClient(context.chain), context.fetch, publicKey, extra.hyperion)
-  if (permissions.length === 0) throw new NoAccount(String(publicKey), extra.createAccountUrl)
+  if (permissions.length === 0) throw new NoAccount(String(publicKey), extra.createAccountUrl, signer)
 
   let permissionLevel: PermissionLevel
   if (context.permissionLevel) {

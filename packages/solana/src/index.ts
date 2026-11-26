@@ -89,7 +89,7 @@ export class WalletPluginSolana extends AbstractWalletPlugin implements WalletPl
     }
     const publicKey = PublicKey.from(`PUB_ED_${address}`)
 
-    const response = await loginWithKey(context, publicKey, this.options)
+    const response = await loginWithKey(context, publicKey, this.options, { wallet: wallet.name, address })
     const data: SolanaSessionData = { publicKey: String(publicKey), walletName: wallet.name }
     this.data = { ...data }
     return response
