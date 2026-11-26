@@ -41,7 +41,7 @@ import { WebRenderer } from '@wharfkit/web-renderer'
 import { WalletPluginEvm } from '@alcorexchange/wallet-plugin-evm'
 import { WalletPluginSolana } from '@alcorexchange/wallet-plugin-solana'
 
-const testnet = { id: '9ae36fa71c10a5494664d3e1f9c67fba5dca35d316848a57a8df115ad306978f', url: 'https://api.acc.alcor.exchange' }
+const testnet = { id: 'a23b0ec475262075fa3b99a38614e243c00275f777fce93e2d70a4f8d367e3fb', url: 'https://api.acc.alcor.exchange' }
 
 // Optional, per chain id
 const chains = {

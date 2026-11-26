@@ -7,7 +7,7 @@ import { sha256 } from '@noble/hashes/sha256'
 import { bytesToHex, hexToBytes, utf8ToBytes } from '@noble/hashes/utils'
 import { ChainDefinition, LoginContext, Serializer, SessionKit, cancelable } from '@wharfkit/session'
 
-export const CHAIN_ID = '9ae36fa71c10a5494664d3e1f9c67fba5dca35d316848a57a8df115ad306978f'
+export const CHAIN_ID = 'a23b0ec475262075fa3b99a38614e243c00275f777fce93e2d70a4f8d367e3fb'
 export const RPC = 'https://api.test'
 export const HYPERION = 'https://history.test'
 export const FAUCET = 'https://acc.alcor.exchange/faucet'
